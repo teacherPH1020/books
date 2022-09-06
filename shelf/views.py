@@ -7,6 +7,8 @@ def add_shelf_view(request):
     form = ShelfForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         form.save()
+    else:
+        context['alert'] = 'Form is invalid'
     context['form'] = form
     return render(request, 'add_form.html', context=context)
 
