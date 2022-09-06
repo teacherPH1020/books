@@ -19,8 +19,11 @@ from django.urls import path
 from django.conf.urls.static import static
 
 from main import settings
+from shelf.views import add_book_view, add_shelf_view
 
 urlpatterns = [
+    path('add_shelf/', add_shelf_view),
+    path('', add_book_view),
     path('admin/', admin.site.urls),
 ]
 
