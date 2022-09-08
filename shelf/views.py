@@ -32,7 +32,9 @@ def add_book_view(request):
         elif request.POST.get('title', False):
             form = BookForm(request.POST or None, request.FILES or None)
             if form.is_valid():
-                form.save()
+                new_book = form.save(commit=False)
+                new_book.title = f'<{new_book.title}>'
+                new_book.save()
                 form = AuthorForm()
             else:
                 context['alert'] = 'Form is invalid'
