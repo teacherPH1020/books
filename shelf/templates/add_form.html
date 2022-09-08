@@ -6,11 +6,10 @@
 </head>
 <body>
     <font color="red">{{ alert }} </font>
-    <form method="POST">
+    <font color="blue" size="24pt">{{ form_purpose }} </font>
+    <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        <table>
-            {{form}}
-        </table>
+            {{form.as_p}}
         <input type="submit" value="Submit"/>
     </form>
 </body>
